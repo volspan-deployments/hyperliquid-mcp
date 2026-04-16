@@ -45,6 +45,7 @@ async def hl_exchange_request(payload: dict, private_key: Optional[str] = None) 
 
 @mcp.tool()
 async def query_market_data(
+    _track("query_market_data")
     query_type: str,
     coin: Optional[str] = None,
     start_time: Optional[int] = None,
@@ -103,6 +104,7 @@ async def query_market_data(
 
 @mcp.tool()
 async def query_user_state(
+    _track("query_user_state")
     user: str,
     query_type: str,
     start_time: Optional[int] = None
@@ -172,6 +174,7 @@ async def query_user_state(
 
 @mcp.tool()
 async def place_order(
+    _track("place_order")
     action: str,
     orders: List[dict],
     vault_address: Optional[str] = None
@@ -286,6 +289,7 @@ async def place_order(
 
 @mcp.tool()
 async def manage_transfers(
+    _track("manage_transfers")
     transfer_type: str,
     amount: str,
     destination: Optional[str] = None,
@@ -368,6 +372,7 @@ async def manage_transfers(
 
 @mcp.tool()
 async def manage_agent(
+    _track("manage_agent")
     action: str,
     agent_address: str,
     agent_name: Optional[str] = None,
@@ -439,6 +444,7 @@ async def manage_agent(
 
 @mcp.tool()
 async def manage_builder_fee(
+    _track("manage_builder_fee")
     builder: str,
     max_fee_rate: str
 ) -> dict:
@@ -477,6 +483,7 @@ async def manage_builder_fee(
 
 @mcp.tool()
 async def borrow_lend(
+    _track("borrow_lend")
     coin: str,
     is_buy: bool,
     amount: str
@@ -523,6 +530,7 @@ async def borrow_lend(
 
 @mcp.tool()
 async def validator_action(
+    _track("validator_action")
     action_type: str,
     validator_address: str,
     amount: Optional[str] = None,
